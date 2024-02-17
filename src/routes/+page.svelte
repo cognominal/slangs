@@ -1,22 +1,38 @@
 <script lang="ts">
-    import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, ImagePlaceholder, Skeleton, TextPlaceholder, Dropdown } from 'flowbite-svelte';
-    import {    DropdownItem, DropdownDivider } from 'flowbite-svelte';
-    import { ChevronDownOutline } from 'flowbite-svelte-icons';
-    import { page } from '$app/stores';
-    import CodeMirror from 'svelte-codemirror-editor';
-    import { Splitpanes, Pane } from 'svelte-splitpanes';
-    import { onMount } from 'svelte';
+	import {
+		Navbar,
+		NavBrand,
+		NavLi,
+		NavUl,
+		NavHamburger,
+		ImagePlaceholder,
+		Skeleton,
+		TextPlaceholder,
+		Dropdown
+	} from 'flowbite-svelte';
+	import { DropdownItem, DropdownDivider } from 'flowbite-svelte';
+	import { ChevronDownOutline } from 'flowbite-svelte-icons';
+	import { page } from '$app/stores';
+	import CodeMirror from 'svelte-codemirror-editor';
+	import { Splitpanes, Pane } from 'svelte-splitpanes';
+	import { onMount } from 'svelte';
 	// import { findPathToPos, calcCrumbbar } from '$lib/utilities';
-	  import { parse } from 'yaml';
-    import {} from '$lib/utils';
- 
-    $: activeUrl = $page.url.pathname;
+	import { parse } from 'yaml';
+	import {} from '$lib/utils';
 
-    let parsedText: string;
-    let parseTreeText: string;
-    let crumbs: string[][] = [['toto', 'titi', 'tata'], ['caca']];
+	$: activeUrl = $page.url.pathname;
 
-    async function doFetch(filenm: string): Promise<string> {
+	let parsedText: string;
+	let parseTreeText: string;
+	let crumbs: string[][] = [['toto', 'titi', 'tata'], ['caca']];
+	let parseTreeText1: string;
+	let parseTree: object;
+	let parsedFileNm = '/data/2stmts.nqp';
+	let parsetreeFileNm = '/data/2stmts.parsetree';
+	let error: string = 'no error';
+	let path: string[];
+
+	async function doFetch(filenm: string): Promise<string> {
 		const response = await fetch(filenm);
 		const data = await response.text();
 		return data;
@@ -51,48 +67,27 @@
 
 		// path =	findPathToPos(parseTree, 1);
 	});
+</script>
 
-    
-  </script>
-  <hr/>
-  <Navbar>
-    <NavHamburger />
-    <NavUl {activeUrl}>
-      <NavLi href="/">Home</NavLi>
-      <NavLi class="cursor-pointer">
-        Dropdown<ChevronDownOutline class="w-3 h-3 ms-2 text-primary-800 dark:text-white inline" />
-      </NavLi>
-      <Dropdown class="w-44 z-20">
-        <DropdownItem href="/">Dashboard</DropdownItem>
-        <DropdownItem href="/docs/components/navbar">Settings</DropdownItem>
-        <DropdownItem href="/">Earnings</DropdownItem>
-        <DropdownDivider />
-        <DropdownItem href="/">Sign out</DropdownItem>
-      </Dropdown>
-      <NavLi href="/settings">Setting</NavLi>
-      <NavLi href="/pricing">Pricing</NavLi>
-      <NavLi href="/contact">Contact</NavLi> 
-    </NavUl>
-  </Navbar>
+<hr />
 
-  <Navbar>
-    {#each crumbs as crumb}
-      <NavUl>
-        <NavLi>{crumb[0]}</NavLi>
-      </NavUl>
-      <Dropdown>
-        {#each crumb.splice(1) as subcrumb}
-          <DropdownItem>{subcrumb}</DropdownItem>
-        {/each}
-      </Dropdown>
-    {/each}
-  </Navbar>
-  
+<Navbar>
+	{#each crumbs as crumb}
+		<NavUl>
+			<NavLi>{crumb[0]}<ChevronDownOutline class="w-3 h-3 ms-2 text-primary-800 dark:text-white inline" />
+			</NavLi>
+		</NavUl>
+		<Dropdown>
+			{#each crumb.splice(1) as subcrumb}
+				<DropdownItem>{subcrumb}</DropdownItem>
+			{/each}
+		</Dropdown>
+	{/each}
+</Navbar>
 
-  <div class="full-height">
-    <Splitpanes horizontal={false}>
-      <Pane minSize={15}><CodeMirror bind:value={parsedText} /></Pane>
-      <Pane><CodeMirror bind:value={parseTreeText} /></Pane>
-    </Splitpanes>
-  </div>
-  
+<div class="full-height">
+	<Splitpanes horizontal={false}>
+		<Pane minSize={15}><CodeMirror bind:value={parsedText} /></Pane>
+		<Pane><CodeMirror bind:value={parseTreeText} /></Pane>
+	</Splitpanes>
+</div>
