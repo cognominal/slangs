@@ -1,3 +1,12 @@
+# slangs
+
+This the repo for a [site](https://slangs.vercel.app/) and tools promoting raku slangs. It is in very early stage.
+
+The site is written in svelte 4 using sveltekit, tailwindcss, flowbite, codemirror and yaml.
+Below are instructions given when scaffolding the application.
+
+
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
