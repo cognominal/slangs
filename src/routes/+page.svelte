@@ -1,18 +1,20 @@
 <script lang="ts">
-    import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, ImagePlaceholder, Skeleton, TextPlaceholder } from 'flowbite-svelte';
-    import {    Dropdown, DropdownItem, DropdownDivider } from 'flowbite-svelte';
+    import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, ImagePlaceholder, Skeleton, TextPlaceholder, Dropdown } from 'flowbite-svelte';
+    import {    DropdownItem, DropdownDivider } from 'flowbite-svelte';
     import { ChevronDownOutline } from 'flowbite-svelte-icons';
     import { page } from '$app/stores';
     import CodeMirror from 'svelte-codemirror-editor';
     import { Splitpanes, Pane } from 'svelte-splitpanes';
     import { onMount } from 'svelte';
 	// import { findPathToPos, calcCrumbbar } from '$lib/utilities';
-	import { parse } from 'yaml';
+	  import { parse } from 'yaml';
+    import {} from '$lib/utils';
  
     $: activeUrl = $page.url.pathname;
 
     let parsedText: string;
     let parseTreeText: string;
+    let crumbs: string[][] = [['toto', 'titi', 'tata'], ['caca']];
 
     async function doFetch(filenm: string): Promise<string> {
 		const response = await fetch(filenm);
@@ -69,9 +71,24 @@
       </Dropdown>
       <NavLi href="/settings">Setting</NavLi>
       <NavLi href="/pricing">Pricing</NavLi>
-      <NavLi href="/contact">Contact</NavLi>
+      <NavLi href="/contact">Contact</NavLi> 
     </NavUl>
   </Navbar>
+
+  <Navbar>
+    {#each crumbs as crumb}
+      <NavUl>
+        <NavLi>{crumb[0]}</NavLi>
+      </NavUl>
+      <Dropdown>
+        {#each crumb.splice(1) as subcrumb}
+          <DropdownItem>{subcrumb}</DropdownItem>
+        {/each}
+      </Dropdown>
+    {/each}
+  </Navbar>
+  
+
   <div class="full-height">
     <Splitpanes horizontal={false}>
       <Pane minSize={15}><CodeMirror bind:value={parsedText} /></Pane>
