@@ -7,6 +7,11 @@ const config = {
 
   theme: {
     extend: {
+      screens: {
+        'vsm': '400px',
+        // Add or override other breakpoints as needed
+      },
+    
       colors: {
         // flowbite-svelte
         primary: {

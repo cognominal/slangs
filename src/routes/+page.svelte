@@ -1,27 +1,21 @@
-<script>
+<script lang="ts">
     import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, ImagePlaceholder, Skeleton, TextPlaceholder } from 'flowbite-svelte';
     import {    Dropdown, DropdownItem, DropdownDivider } from 'flowbite-svelte';
     import { ChevronDownOutline } from 'flowbite-svelte-icons';
     import { page } from '$app/stores';
+    import CodeMirror from 'svelte-codemirror-editor';
+    import { Splitpanes, Pane } from 'svelte-splitpanes';
+	  // import { Breadcrumb, BreadcrumbItem, Button } from 'flowbite-svelte';
+	  // import { Dropdown, DropdownItem, DropdownDivider, DropdownHeader } from 'flowbite-    
     $: activeUrl = $page.url.pathname;
+
+    let parsedText: string;
+    let parseTreeText: string;
 
     
   </script>
-  
-  <div class="relative px-8">
-    <div style="height:300px;" class="overflow-scroll pb-16">
-      <Skeleton class="mt-16 mb-8" />
-      <ImagePlaceholder class="my-8" />
-      <TextPlaceholder class="my-8" />
-    </div>
-  </div>
-
-  
+  <hr/>
   <Navbar>
-    <NavBrand href="/">
-      <img src="/images/flowbite-svelte-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
-      <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
-    </NavBrand>
     <NavHamburger />
     <NavUl {activeUrl}>
       <NavLi href="/">Home</NavLi>
@@ -40,3 +34,10 @@
       <NavLi href="/contact">Contact</NavLi>
     </NavUl>
   </Navbar>
+  <div class="full-height">
+    <Splitpanes horizontal={false}>
+      <Pane minSize={15}><CodeMirror bind:value={parsedText} /></Pane>
+      <Pane><CodeMirror bind:value={parseTreeText} /></Pane>
+    </Splitpanes>
+  </div>
+  

@@ -47,6 +47,8 @@
 	"dependencies": {
 		"flowbite-svelte-icons": "^1.3.1",
 		"mdsvex": "^0.11.0",
-		"svelte-preprocess": "^5.1.3"
+		"svelte-codemirror-editor": "^1.2.0",
+		"svelte-preprocess": "^5.1.3",
+		"svelte-splitpanes": "^0.8.0"
 	}
 }
