@@ -49,6 +49,7 @@
 		"mdsvex": "^0.11.0",
 		"svelte-codemirror-editor": "^1.2.0",
 		"svelte-preprocess": "^5.1.3",
-		"svelte-splitpanes": "^0.8.0"
+		"svelte-splitpanes": "^0.8.0",
+		"yaml": "^2.3.4"
 	}
 }

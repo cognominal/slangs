@@ -5,12 +5,50 @@
     import { page } from '$app/stores';
     import CodeMirror from 'svelte-codemirror-editor';
     import { Splitpanes, Pane } from 'svelte-splitpanes';
-	  // import { Breadcrumb, BreadcrumbItem, Button } from 'flowbite-svelte';
-	  // import { Dropdown, DropdownItem, DropdownDivider, DropdownHeader } from 'flowbite-    
+    import { onMount } from 'svelte';
+	// import { findPathToPos, calcCrumbbar } from '$lib/utilities';
+	import { parse } from 'yaml';
+ 
     $: activeUrl = $page.url.pathname;
 
     let parsedText: string;
     let parseTreeText: string;
+
+    async function doFetch(filenm: string): Promise<string> {
+		const response = await fetch(filenm);
+		const data = await response.text();
+		return data;
+	}
+
+	onMount(() => {
+		async function fetchData() {
+			[parsedText, parseTreeText] = await Promise.all([
+				doFetch(parsedFileNm),
+				doFetch(parsetreeFileNm)
+			]);
+		}
+		fetchData();
+		// parseTreeText1 = "- 43\n- 44\n";
+
+		parseTreeText = `TOP/statementlist.0.9:
+  statement/EXPR/value/number.1.3:
+    integer/decint.1.3: null
+  statement/EXPR/value/number.4.7:
+    integer/VALUE.4.7: null`;
+
+		// parseTreeText = "- 43\n- 44\n"
+		try {
+			parseTree = parse(parseTreeText);
+		} catch (e) {
+			console.log(e);
+			error = JSON.stringify(e);
+			// error = e.message;
+		}
+		// parseTree = parse(parseTreeText);
+		// crumbBar = calcCrumbbar(parseTree, 0);
+
+		// path =	findPathToPos(parseTree, 1);
+	});
 
     
   </script>

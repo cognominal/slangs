@@ -1,0 +1,10 @@
+OP/statementlist.0.9:                       #  0;say(42)
+  statement/EXPR.2.9:                        #  say(42)
+    deflongname.5.9:                         #  (42)
+      arglist/EXPR/value/number/integer.6.8:    
+                                             #  42
+        decint.6.8: ~                        #  42
+    args.5.9:                                #  (42)
+      arglist/EXPR/value/number/integer.6.8:    
+                                             #  42
+        decint.6.8: ~                        #  42

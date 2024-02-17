@@ -1,0 +1,114 @@
+TOP/statementlist.0.178:
+  statement/EXPR/package_declarator.0.136:
+    sym.0.7: ~
+    package_def.7.136:
+      name|identifier.8.9:
+      blockoid.10.135:
+        statementlist.11.134:
+          statement/EXPR/regex_declarator.16.58:
+            sym.16.21: ~
+            deflongname/identifier.22.25:
+            p6regex.27.52:
+              termseq/NQP::Regex::termaltseq|termconjseq|termalt|termconj|termish.29.52:
+                noun.29.34:
+                  atom/NQP::Regex::metachar.29.32:
+                    assertion/NQP::Regex::longname.30.31:
+                  sigfinal/NQP::Regex::normspace.32.34:
+                noun.34.48:
+                  atom/NQP::Regex::metachar.34.46:
+                    nibbler.35.45:
+                      termseq/NQP::Regex::termaltseq|termconjseq|termalt|termconj|termish.36.45:
+                        noun.36.41:
+                          atom/NQP::Regex::metachar.36.39:
+                            assertion/NQP::Regex::longname.37.38:
+                          sigfinal/NQP::Regex::normspace.39.41:
+                        noun.41.45:
+                          atom/NQP::Regex::metachar.41.44:
+                            assertion/NQP::Regex::longname.42.43:
+                          sigfinal/NQP::Regex::normspace.44.45:
+                  quantifier.46.47:
+                    sym.46.47: ~
+                  sigfinal/NQP::Regex::normspace.47.48:
+                noun.48.52:
+                  atom/NQP::Regex::metachar.48.51:
+                    assertion/NQP::Regex::longname.49.50:
+                  sigfinal/NQP::Regex::normspace.51.52:
+          statement/EXPR/regex_declarator.58.78:
+            sym.58.63: ~
+            deflongname/identifier.64.65:
+            p6regex.67.72:
+              termseq/NQP::Regex::termaltseq|termconjseq|termalt|termconj|termish|noun.68.72:
+                atom/NQP::Regex::metachar/quote_EXPR/quote_delimited.68.71:
+                  starter.68.69: ~
+                  quote_atom.69.70:
+                  stopper.70.71: ~
+                sigfinal/NQP::Regex::normspace.71.72:
+          statement/EXPR/regex_declarator.78.98:
+            sym.78.83: ~
+            deflongname/identifier.84.85:
+            p6regex.87.92:
+              termseq/NQP::Regex::termaltseq|termconjseq|termalt|termconj|termish|noun.88.92:
+                atom/NQP::Regex::metachar/quote_EXPR/quote_delimited.88.91:
+                  starter.88.89: ~
+                  quote_atom.89.90:
+                  stopper.90.91: ~
+                sigfinal/NQP::Regex::normspace.91.92:
+          statement/EXPR/regex_declarator.98.118:
+            sym.98.103: ~
+            deflongname/identifier.104.105:
+            p6regex.107.112:
+              termseq/NQP::Regex::termaltseq|termconjseq|termalt|termconj|termish|noun.108.112:
+                atom/NQP::Regex::metachar/quote_EXPR/quote_delimited.108.111:
+                  starter.108.109: ~
+                  quote_atom.109.110:
+                  stopper.110.111: ~
+                sigfinal/NQP::Regex::normspace.111.112:
+          statement/EXPR/regex_declarator.118.134:
+            sym.118.123: ~
+            deflongname/identifier.124.125:
+            p6regex.127.132:
+              termseq/NQP::Regex::termaltseq|termconjseq|termalt|termconj|termish|noun.128.132:
+                atom/NQP::Regex::metachar/quote_EXPR/quote_delimited.128.131:
+                  starter.128.129: ~
+                  quote_atom.129.130:
+                  stopper.130.131: ~
+                sigfinal/NQP::Regex::normspace.131.132:
+  statement/EXPR/scope_declarator.136.162:
+    sym.136.138: ~
+    scoped/declarator/variable_declarator.139.162:
+      variable.139.141:
+        sigil.139.140: ~
+        desigilname|identifier.140.141:
+      initializer.142.162:
+        EXPR.146.162:
+          postfix.146.162:
+            dotty.146.162:
+              deflongname/identifier.147.152:
+              longname/identifier.147.152:
+              args.152.162:
+                arglist/EXPR/value/quote/quote_EXPR/quote_delimited.153.161:
+                  starter.153.154: ~
+                  quote_atom.154.160:
+                  stopper.160.161: ~
+          OPER.146.162:
+            dotty.146.162:
+              deflongname/identifier.147.152:
+              longname/identifier.147.152:
+              args.152.162:
+                arglist/EXPR/value/quote/quote_EXPR/quote_delimited.153.161:
+                  starter.153.154: ~
+                  quote_atom.154.160:
+                  stopper.160.161: ~
+  statement/EXPR.164.176:
+    deflongname/identifier.164.167:
+    args.167.176:
+      arglist.168.175:
+        EXPR.170.175:
+          postfix.170.175:
+            dotty.170.175:
+              deflongname/identifier.171.175:
+              longname/identifier.171.175:
+          OPER.170.175:
+            dotty.170.175:
+              deflongname/identifier.171.175:
+              longname/identifier.171.175: ~
