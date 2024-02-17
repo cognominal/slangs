@@ -1,3 +1,8 @@
 {
-    "workbench.iconTheme": "vs-seti"
+    "workbench.iconTheme": "vs-seti",
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode",
+
+        "editor.formatOnSave": true
+      }
 }
