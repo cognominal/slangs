@@ -2,10 +2,16 @@
 
 This the repo for a [site](https://slangs.vercel.app/) and tools promoting raku slangs. It is in very early stage.
 
-The site is written in svelte 4 using sveltekit, tailwindcss, flowbite, codemirror and yaml.
+The site is written in [svelte 4](https://svelte.dev/) using [sveltekit](https://kit.svelte.dev/), tailwindcss [\[1\]](https://tailwindcss.com/docs/guides/sveltekit)
+[\[2\]](https://tailwind-workshop.vercel.app/introduction), [flowbite](https://flowbite-svelte.com/), [codemirror](https://codemirror.net/) and yaml [\[1\]](https://eemeli.org/yaml/#yaml)[\[2\]](https://yaml.org/spec/1.2.2/).
 Below are instructions given when scaffolding the application.
 
+## work in progress
 
+I have reached a stage where I knnow what tools to used.
+This not a SMOP (Simple mantter of programming) but my progress should be visible from now on.
+A MVP will be better than any explanation of waht I aim to.
+This repo will probably evolve into a [monorepo](https://monorepo.tools/).
 
 # create-svelte
 
