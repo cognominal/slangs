@@ -4,26 +4,38 @@ import { calcCrumbs } from './utils'
 import { parse } from 'yaml'
 
 
-const paesetreeStr = `a:0.1: ˜\n`
-
-const parseTree =
-`OP/statementlist.0.9:                       #  0;say(42)
-statement/EXPR.2.9:                        #  say(42)
-deflongname.5.9:                         #  (42)
-arglist/EXPR/value/number/integer.6.8:    
-#  42
-decint.6.8: ~                        #  42
-args.5.9:                                #  (42)
-arglist/EXPR/value/number/integer.6.8:    
-#  42
-decint.6.8: ~                        #  42
+const parsetreeStr = `a.0.1: ~\n`
+const parsetreeStr1 =
+`a.0.4:
+  b.0.2: ~
+  c/d.3.4: ~
 `
 
 describe('yaml', () => {
-	it('parses', () => {
-		expect(parse(paesetreeStr)).toBeDefined();
-	})
-	it('adds 1 + 2 to equal 3', () => {
-		expect(1 + 2).toBe(3);
-	});
+  it('parses parsetreeStr', () => {
+    const p = parse(parsetreeStr)
+    expect(p).toBeDefined();
+    expect(p["a.0.1"]).toBe(null);
+
+  })
+  it('parses parsetreeStr1', () => {
+    const p = parse(parsetreeStr1)
+    expect(p).toBeDefined();
+  })
+  it('correctly parses parsetreeStr1', () => {
+    const p = parse(parsetreeStr1)
+    expect(p["a.0.4"]).toHaveProperty("b.0.3");
+
+  })
+
 });
+
+describe('calcCrumbs', () => {
+  it('parses', () => {
+    const p = parse(parsetreeStr1)
+    const c = calcCrumbs(p, 3)
+    expect(c).toEqual({ span: [3, 4], components: [ ['a' ], [ 'c', 'd' ] ] });
+
+  })
+})
+
