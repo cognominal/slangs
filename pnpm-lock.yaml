@@ -88,6 +88,9 @@ devDependencies:
   svelte-preprocess-markdown:
     specifier: ^2.7.3
     version: 2.7.3
+  svelte-toc:
+    specifier: ^0.5.7
+    version: 0.5.7
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
@@ -2867,6 +2870,12 @@ packages:
       esm-env-robust: 0.0.3
       svelte: 4.2.11
     dev: false
+
+  /svelte-toc@0.5.7:
+    resolution: {integrity: sha512-+n8lwy/KTkMdvCXZJQ+kLae6XkN1/TiDnpTqev+UAIulCvbbpYJy/8pcq/zn0Jjyoec2PiIb6gENeNkXxwMNYw==}
+    dependencies:
+      svelte: 4.2.11
+    dev: true
 
   /svelte@4.2.11:
     resolution: {integrity: sha512-YIQk3J4X89wOLhjsqIW8tqY3JHPuBdtdOIkASP2PZeAMcSW9RsIjQzMesCrxOF3gdWYC0mKknlKF7OqmLM+Zqg==}

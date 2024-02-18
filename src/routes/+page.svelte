@@ -21,16 +21,22 @@
 	import { parse } from 'yaml';
 	import { calcCrumbs, type Crumbs, type ParseTree } from '$lib/utils';
 	import ParsetreeBrowser from '$lib/ParsetreeBrowser.svelte';
+	import { Hr } from 'flowbite-svelte';
+	import Toc from 'svelte-toc';
 
 	$: activeUrl = $page.url.pathname;
 
 	let parsedText: string;
 	let parseTreeText: string;
-	let crumbs: Crumbs;
+	let parsedText1: string;
 	let parseTreeText1: string;
+	let crumbs: Crumbs;
 	let parseTree: object;
 	let parsedFileNm = '/data/t';
 	let parsetreeFileNm = '/data/t.parsetree';
+
+	let parsedFileNm1 = 'data/sample-grammar.nqp';
+	let parsetreeFileNm1 = '/data/sample-grammar.parsetree';
 	let error: string = 'no error';
 	let path: string[];
 
@@ -42,9 +48,11 @@
 
 	onMount(() => {
 		async function fetchData() {
-			[parsedText, parseTreeText] = await Promise.all([
+			[parsedText, parseTreeText, parsedText1, parseTreeText1] = await Promise.all([
 				doFetch(parsedFileNm),
-				doFetch(parsetreeFileNm)
+				doFetch(parsetreeFileNm),
+				doFetch(parsedFileNm1),
+				doFetch(parsetreeFileNm1)
 			]);
 		}
 		fetchData();
@@ -59,31 +67,30 @@
 	});
 </script>
 
-<hr />
+<Toc />
 
-<ParsetreeBrowser {parsedText} {parseTreeText} />
-<div />
-<ParsetreeBrowser {parsedText} {parseTreeText} />
+<main>
+	<h1>parsetree browser</h1>
+	The workhorse of this site is the parsetree browser widget (PBW). An unexpended PBW looks like a regular
+	code example :
 
-{JSON.stringify(crumbs)}
-<p />
-{JSON.stringify(parseTree)}
-<p />
-{JSON.stringify(error)}
+	<CodeMirror bind:value={parseTreeText} />
 
-<!-- <Navbar>
-	{#each crumbs.components as crumb}
-		<NavUl>
-			<NavLi
-				>{crumb[0]}<ChevronDownOutline
-					class="w-3 h-3 ms-2 text-primary-800 dark:text-white inline"
-				/>
-			</NavLi>
-		</NavUl>
-		<Dropdown>
-			{#each crumb.splice(1) as subcrumb}
-				<DropdownItem>{subcrumb}</DropdownItem>
-			{/each}
-		</Dropdown>
-	{/each}
-</Navbar> -->
+	<h2>Expanded PBW</h2>
+
+	An expanded PBW is generally full screen. But for sake of illustration it is not here
+
+	<ParsetreeBrowser {parsedText} {parseTreeText} />
+	<Hr />
+
+	<div style="height:  20rem; overflow: auto;">
+		<ParsetreeBrowser parsedText={parsedText1} parseTreeText={parseTreeText1} />
+	</div>
+	<div />
+
+	{JSON.stringify(crumbs)}
+	<p />
+	{JSON.stringify(parseTree)}
+	<p />
+	{JSON.stringify(error)}
+</main>
