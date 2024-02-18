@@ -24,7 +24,7 @@ describe('yaml', () => {
   })
   it('correctly parses parsetreeStr1', () => {
     const p = parse(parsetreeStr1)
-    expect(p["a.0.4"]).toHaveProperty("b.0.3");
+    expect(p["a.0.4"]).toHaveProperty("b.0.2");
 
   })
 

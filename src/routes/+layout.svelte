@@ -21,6 +21,7 @@
 	<NavUl>
 		<NavLi href="/" active={true}>Home</NavLi>
 		<NavLi href="/About">About</NavLi>
+		<NavLi href="/Playground">PlayGround</NavLi>
 		<NavLi href="https://github.com/cognominal/slangs">
 			<img src="github-mark/github-mark.svg" class="me-3 h-3 sm:h-6" alt="Flowbite Logo" />
 		</NavLi>

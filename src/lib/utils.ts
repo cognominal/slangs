@@ -2,25 +2,26 @@ type ParsetreeLeaf = string
 type ParseTreeNonLeaf = { [index: string]: ParsetreeNode; }
 
 type ParsetreeNode = ParsetreeLeaf | ParseTreeNonLeaf
-type ParseTree = ParsetreeNode
+export type ParseTree = ParsetreeNode
 
 export interface Crumbs {
     span: number[]
     components: string[][]
 }   
 
-/*  Given a ParseTree generated from loading a parsetree in yaml, and a position
-    calcCrumbs find the path to the position. It returns the span of the
-    path leaf node, and  the list of same span paths 
-    that lead to it and breakit in its components.
+/*  
+Given a ParseTree generated from loading a parsetree in yaml, and a position
+calcCrumbs find the path to the position. It returns the span of the path leaf
+node, and the list of same span paths that lead to it and breakit in its
+components.
    
-    At position 3 with the following parsetree:
+At position 3 with the following parsetree:
     
     a.0.4:
       b.0.2: ~
       c/d.3.4: ~
 
-    It gives:  
+It gives:  
 
     { span: [3, 4], components: [ ['a' ], [ 'c', 'd' ] ] }
  */
