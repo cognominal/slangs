@@ -22,6 +22,7 @@ The list of areas I am currently working on with their tags on commit
 - [PTB] parse tree browser as a whole
   - [crumbs] logic to generate the crumbs and interact with them. Currently broken and commented out.
   - [rules pane] logic to bring content to the rules pane of a PTB
+  - [TOC] styling of the tOC
 
 # create-svelte
 
