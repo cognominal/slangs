@@ -69,7 +69,7 @@
 
 <Toc />
 
-<main>
+<main class="w-[100-rem]">
 	<h1>parsetree browser</h1>
 	The workhorse of this site is the parsetree browser widget (PBW). An unexpended PBW looks like a regular
 	code example :
@@ -78,12 +78,14 @@
 
 	<h2>Expanded PBW</h2>
 
-	An expanded PBW is generally full screen. But for sake of illustration it is not here
+	An expanded PBW is generally full screen. But for sake of illustration it is not full screen here.
+	On the left is the code. In the right one can choose between the parse tree generated from the
+	code and a pane which displays the rules used to parse the code (TBD).
 
 	<ParsetreeBrowser {parsedText} {parseTreeText} />
 	<Hr />
 
-	<div style="height:  20rem; overflow: auto;">
+	<!-- <div style="height:  20rem; overflow: auto;">
 		<ParsetreeBrowser parsedText={parsedText1} parseTreeText={parseTreeText1} />
 	</div>
 	<div />
@@ -92,5 +94,5 @@
 	<p />
 	{JSON.stringify(parseTree)}
 	<p />
-	{JSON.stringify(error)}
+	{JSON.stringify(error)} -->
 </main>
