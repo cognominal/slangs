@@ -67,7 +67,7 @@
 	});
 </script>
 
-<Toc />
+<!-- <Toc /> -->
 
 <main class="w-[100-rem]">
 	<h1>parsetree browser</h1>
