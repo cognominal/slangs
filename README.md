@@ -3,7 +3,7 @@
 This the repo for a [site](https://slangs.vercel.app/) and tools promoting raku slangs. It is in very early stage.
 
 The site is written in [svelte 4](https://svelte.dev/) using [sveltekit](https://kit.svelte.dev/), tailwindcss [\[1\]](https://tailwindcss.com/docs/guides/sveltekit)
-[\[2\]](https://tailwind-workshop.vercel.app/introduction), [flowbite](https://flowbite-svelte.com/), [codemirror](https://codemirror.net/) and yaml [\[1\]](https://eemeli.org/yaml/#yaml)[\[2\]](https://yaml.org/spec/1.2.2/).
+[\[2\]](https://tailwind-workshop.vercel.app/introduction), [flowbite](https://flowbite-svelte.com/), [codemirror](https://codemirror.net/), yaml [\[1\]](https://eemeli.org/yaml/#yaml)[\[2\]](https://yaml.org/spec/1.2.2/), [mdsvex](https://mdsvex.pngwn.io/).
 Below are instructions given when scaffolding the application.
 
 ## work in progress
@@ -23,6 +23,7 @@ The list of areas I am currently working on with their tags on commit
   - [crumbs] logic to generate the crumbs and interact with them. Currently broken and commented out.
   - [rules pane] logic to bring content to the rules pane of a PTB
   - [TOC] styling of the tOC
+  - [styling] ditto
 
 # create-svelte
 
