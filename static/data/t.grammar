@@ -1,0 +1,6 @@
+grammar A {
+    token TOP {  <b> 3 <c> }
+    token b { 12 }
+    token  c { <d>  }
+    token d { 4 }
+}
