@@ -13,6 +13,16 @@ This not a SMOP (Simple mantter of programming) but my progress should be visibl
 A MVP will be better than any explanation of waht I aim to.
 This repo will probably evolve into a [monorepo](https://monorepo.tools/).
 
+## focus
+
+The list of areas I am currently working on with their tags on commit
+
+- [content] site content
+- [focus] change of focus
+- [PTB] parse tree browser as a whole
+  - [crumbs] logic to generate the crumbs and interact with them. Currently broken and commented out.
+  - [rules pane] logic to bring content to the rules pane of a PTB
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
