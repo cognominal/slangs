@@ -1,0 +1,56 @@
+
+I want to promote here raku grammars and slangs, and eventually make them available to languages
+other than raku by making them a wasm based engine. Eventually I would like to develop
+a streamlined grammar for Svelte 5.
+
+TO do so, I create pedagogical tools to learn about parsing with grammars. I do
+so by using yaml parsetrees and maybe the ASTs. These tools are prototyped on
+this site but are intended to eventually be available in vscode. The original
+version of the site at slangs.vercel.app is static because it has no acces to
+the raku compiler.
+
+By documenting only availaible features in a pedagogical form, the current raku
+documentation loses the spirit of the original specifications in ther final
+form, the synopses. The current raku documentation does not even mention the word slang. Even
+synopses mention slangs one time in passing.
+
+Grammars are a mostly a declarative way to direct the parsing of programs.
+
+##  raku syntax, a boon and a curse
+
+A scary part of raku for the beginner, most loved by its practitionners and most problematic
+for the current tools, is its rich syntax, especially for literals.
+
+
+:foo    
+
+desugarized pair literal :foo(False)  
+
+OO version Pair.new('foo', False)
+
+## Yaml slang
+
+For complex data structures, raku
+ is too verbose.
+Here comes the Yaml slang (TBD)
+
+
+
+These tools will display and manipulates source code and parsetrees.
+Eventually I want to port the raku parsing engine into haskell to run in wasm and
+provide a tree sitter usable by vscode. The first step will be to support in existing
+regular expression engines in haskell to support the regularized Raku syntax.
+
+By programmatically tieing parse tree to the relevant documentation
+tools promote learning by helping to read real programs. I intend to track what is learnt
+and to gamify the learning.
+
+You are invited to contribute. The modalities to do so will be eventually explained.
+
+
+Doc will be organised from the simple to the complex.
+Given a real program of his choice, which will be a motivation for the learner, the tutor will give a learning path from simple to complex.
+
+
+
+[See more](About)

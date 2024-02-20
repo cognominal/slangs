@@ -17,7 +17,7 @@ This repo will probably evolve into a [monorepo](https://monorepo.tools/).
 
 The list of areas I am currently working on with their tags on commit
 
-- [content] site content
+- [content] site content and various notes
 - [focus] change of focus
 - [factorize] code that will refactorize code
 - [PTB] parse tree browser as a whole
