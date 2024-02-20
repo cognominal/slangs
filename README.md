@@ -19,6 +19,7 @@ The list of areas I am currently working on with their tags on commit
 
 - [content] site content
 - [focus] change of focus
+- [factorize] code that will refactorize code
 - [PTB] parse tree browser as a whole
   - [crumbs] logic to generate the crumbs and interact with them. Currently broken and commented out.
   - [rules pane] logic to bring content to the rules pane of a PTB

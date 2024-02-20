@@ -1,0 +1,32 @@
+# /usr/bin/env raku
+# Does not even compile
+
+grammar Transform-rule {
+
+    
+    token TOP { <from-spec> '-->' <to-spec> }
+    token from-spec {  <rec>+  }
+
+    token to-spec {  <to-elem>+  }
+    token to-elem { <to-str> | <id> }    
+    token to-str { \' $<str><[\V]-[']>+?   \' | <nm> }
+    token hash { <nm> '{' '}'
+    token nm { <[\w-]>+ }
+    token id { '$' <.nm> }
+}
+                        
+class Transform-rule-actions {
+    has str %match # associated to a capture  
+
+    method to-spec {  }
+    method to-elem { make $<str>}
+    method to-str { 
+        if $<nm> {  
+            make "'" ~ $<nm> ~ "'"  
+        } else {
+            make ~$/
+
+        }
+
+}
+
