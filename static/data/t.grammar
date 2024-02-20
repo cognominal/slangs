@@ -4,8 +4,8 @@ grammar A {
     }
     token b { 
         12 {? 1 }
-    } # comment 
-    token c { <d>  } # comment
+    } # comment1 
+    token c { <d>  } # comment2
     proto token d { <...> }
     token d:sym<4> { <sym> }
     token d:sym<5> { <sym> }

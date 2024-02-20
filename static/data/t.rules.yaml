@@ -1,0 +1,26 @@
+---
+"TOP": 
+  "TOP": 
+    "from": "12"
+    "rule": "    token TOP { \n         <b> 3 <c> \n    }"
+    "to": "54"
+"b": 
+  "b": 
+    "from": "55"
+    "rule": "    token b { \n        12 {? 1 }\n    }"
+    "to": "93"
+"c": 
+  "c": 
+    "from": "106"
+    "rule": "    token c { <d>  } # comment2\n"
+    "to": "138"
+"d": 
+  "d:sym<4>": 
+    "from": "166"
+    "rule": "    token d:sym<4> { <sym> }\n"
+    "to": "195"
+  "d:sym<5>": 
+    "from": "195"
+    "rule": "    token d:sym<5> { <sym> }\n"
+    "to": "224"
+...

@@ -1,0 +1,48 @@
+#! /usr/bin/env raku
+=begin pod
+From a .grammar file, create a .rules.yaml file.
+The .rules.yaml will be used to display rules in the 
+current parsetree path in the rule pane of the Literate widget
+(formerly parsetree browser).
+=end pod
+use YAMLish;
+
+## hardwired file, need a MAIN
+my $path     = 'static/data/';
+my $name       = 't';
+my $in-file  = "$path/$name.grammar";
+my $out-file = "$path/$name.rules.yaml";
+$_ = slurp $in-file;
+
+my str $indent;
+my str $long-name;
+
+grammar Rule {
+    token TOP { [ .*? <rule> ]+ }
+    token id { <[\w\-]>+ }
+    token long-name {  $<nm>=<.id> [ ':' sym '<' <.id> '>' ]? }  
+    token start-rule { 
+         ^^ $<indent>= \h* [ token | regex | rule ] \h+ <long-name> 
+        { $indent= ~$<indent>; $long-name= ~$<long-name> }
+    }
+    token rule {
+        <start-rule> [ <end-rule-same-line> || <end-rule-different-line>  ]
+        { addRule($/) }
+    }
+    token end-rule-same-line { \V+?  '}' \h* [ '#' \V* ]? \v }
+    token end-rule-different-line {
+        .*? ^^ $indent '}'
+
+    }
+}
+
+
+my %grammarData;
+my $m = Rule.parse($_);
+my $yaml = save-yaml(%grammarData);
+spurt $out-file, $yaml;
+
+sub addRule($/) {
+     my $m = $<start-rule><long-name>;
+     %grammarData{$m<nm>}{$m} = { from => ~$/.from, to => ~$/.to, rule => ~$/ };
+}
