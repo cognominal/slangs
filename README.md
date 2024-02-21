@@ -20,7 +20,7 @@ The list of areas I am currently working on with their tags on commit
 - [content] site content and various notes
 - [focus] change of focus
 - [factorize] code that will refactorize code
-- [PTB] parse tree browser as a whole
+- [Literate] Literate widget as a whole. Was [PTB]
   - [crumbs] logic to generate the crumbs and interact with them. Currently broken and commented out.
   - [rules pane] logic to bring content to the rules pane of a PTB
   - [TOC] styling of the tOC
