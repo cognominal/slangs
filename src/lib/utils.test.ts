@@ -1,40 +1,44 @@
 import { describe, it, expect } from 'vitest';
-
-import { calcCrumbs } from './utils'
+import type { Crumbs} from './types'
+import {  calcCrumbs } from './utils'
 import { parse } from 'yaml'
 
 
-const parsetreeStr = `a.0.1: ~\n`
-const parsetreeStr1 =
+const YsimpleTree = `a.0.1: ~\n`
+const YTreee =
 `a.0.4:
   b.0.2: ~
   c/d.3.4: ~
 `
 
-describe('yaml', () => {
-  it('parses parsetreeStr', () => {
-    const p = parse(parsetreeStr)
+describe('yaml parsetrees', () => {
+  it('parses simpleTree', () => {
+    const p = parse(YsimpleTree)
     expect(p).toBeDefined();
     expect(p["a.0.1"]).toBe(null);
 
   })
-  it('parses parsetreeStr1', () => {
-    const p = parse(parsetreeStr1)
+  it('parses tree', () => {
+    const p = parse(YTreee)
     expect(p).toBeDefined();
   })
-  it('correctly parses parsetreeStr1', () => {
-    const p = parse(parsetreeStr1)
+  it('correctly parses tree', () => {
+    const p = parse(YTreee)
     expect(p["a.0.4"]).toHaveProperty("b.0.2");
 
   })
 
 });
 
+
 describe('calcCrumbs', () => {
-  it('parses', () => {
-    const p = parse(parsetreeStr1)
-    const c = calcCrumbs(p, 3)
-    expect(c).toEqual({ span: [3, 4], components: [ ['a' ], [ 'c', 'd' ] ] });
+  it('generate correct crumbs', () => {
+    const p = parse(YTreee)
+    const c : Crumbs = calcCrumbs(p, 3)
+    expect(c).toEqual(
+      [ { span: [0, 4], rules: ['a'] }, { span: [3, 4], rules: ['c', 'd'] } ]
+    )
+
 
   })
 })

@@ -1,10 +1,12 @@
 <script lang="ts">
+	import type { Crumbs, Parsetree } from './types';
+	// import * as T from '$lib/types.js';
 	import CodeMirror from 'svelte-codemirror-editor';
 	import { Splitpanes, Pane } from 'svelte-splitpanes';
 	import { onMount } from 'svelte';
 	import { parse } from 'yaml';
-	import { calcCrumbs, type Crumbs, type ParseTree } from '$lib/utils';
-	import { Tabs, TabItem, Timeline, TimelineItem, Button, Hr } from 'flowbite-svelte';
+	import { calcCrumbs } from '$lib/utils';
+	import { Tabs, TabItem, Hr } from 'flowbite-svelte';
 	export let parsedText: string;
 	export let parseTreeText: string;
 	let parseTree: object;
@@ -13,7 +15,7 @@
 	let crumbs: Crumbs;
 	try {
 		parseTree = parse(parseTreeText);
-		crumbs: Crumbs = calcCrumbs(parseTree as ParseTree, 3);
+		crumbs = calcCrumbs(parseTree as Parsetree, 3);
 	} catch (e) {
 		console.log(e);
 		error = JSON.stringify(e);
@@ -47,7 +49,9 @@
 		<Pane>
 			<Tabs contentClass="bg-gray-50  dark:bg-gray-800">
 				<TabItem open title="parsetree">
-					<CodeMirror bind:value={parseTreeText} />
+					<div class="h-full">
+						<CodeMirror bind:value={parseTreeText} />
+					</div>
 				</TabItem>
 				<TabItem title="rules">
 					<CodeMirror bind:value={rulesTxt} />

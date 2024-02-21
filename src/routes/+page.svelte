@@ -1,30 +1,16 @@
 <script lang="ts">
-	import {
-		Navbar,
-		NavBrand,
-		NavLi,
-		NavUl,
-		NavHamburger,
-		ImagePlaceholder,
-		Skeleton,
-		TextPlaceholder,
-		Dropdown
-	} from 'flowbite-svelte';
-	import { DropdownItem, DropdownDivider } from 'flowbite-svelte';
-	import { Breadcrumb, BreadcrumbItem } from 'flowbite-svelte';
-
-	import { ChevronDownOutline } from 'flowbite-svelte-icons';
-	import { page } from '$app/stores';
+	import type { Parsetree, Crumbs } from '$lib/types.js';
+	import { calcCrumbs } from '$lib/utils';
+	// import { page } from '$app/stores';
 	import CodeMirror from 'svelte-codemirror-editor';
-	import { Splitpanes, Pane } from 'svelte-splitpanes';
 	import { onMount } from 'svelte';
 	import { parse } from 'yaml';
-	import { calcCrumbs, type Crumbs, type ParseTree } from '$lib/utils';
+	// import { Literate } from '$lib/Literate.svelte';
 	import Literate from '$lib/Literate.svelte';
 	import { Hr } from 'flowbite-svelte';
 	import Toc from 'svelte-toc';
 
-	$: activeUrl = $page.url.pathname;
+	// $: activeUrl = $page.url.pathname;
 
 	let parsedText: string;
 	let parseTreeText: string;
@@ -63,26 +49,44 @@
 			error = JSON.stringify(e);
 			// error = e.message;
 		}
-		crumbs = calcCrumbs(parseTree as ParseTree, 3);
+		crumbs = calcCrumbs(parseTree as Parsetree, 3);
 	});
 </script>
 
 <!-- <Toc /> -->
 
-<main class="w-[100-rem]">
+<!-- Can I make this page a +page.svelte.md despite the onMount ? -->
+
+<main
+	style="width: 40rem; text-align: justify; margin-left: auto;
+margin-right: auto;"
+>
+	<h1>Grammars and slangs</h1>
+	This site (in construction) will promote raku grammars and slangs, and eventually make them available
+	to languages other than raku by making them a wasm based engine. Eventually having a a streamlined
+	grammar for Svelte 5 would be nice.
+
+	<p>
+		To do so, We create pedagogical tools to learn about parsing with grammars. We do so by using
+		yaml parsetrees and maybe the ASTs. These tools are prototyped on this site but are intended to
+		eventually be available in vscode. The original version of the site at slangs.vercel.app is
+		static because it has no acces to the raku compiler.
+	</p>
+
 	<h1>Literate Widget</h1>
-	The workhorse of this site is the Literate widget. It allows to interact with code, refactor it (TBD),
-	and access the relevant documentation (TBD). Unexpanded, it looks like a regular code example :
+
+	The workhorse of this site is the Literate widget. It allows to interact with code, refactor it
+	(TBD), and access the relevant documentation (TBD). Unexpanded, it looks like a regular code
+	example :
 
 	<CodeMirror bind:value={parseTreeText} />
 
 	<h2>Expanded Literate</h2>
 
- The expanded literate will be used to explore the parse tree generated from
- the code. An expanded Literate Widget is generally full screen. But for sake
- of illustration it is not full screen here. On the left is the code. In the
- right one can choose between the parse tree generated from the code and a pane
- which displays the rules used to parse the code (TBD).
+	The expanded literate widget will be used to explore the parse tree generated from the code. An
+	expanded Literate Widget is generally full screen. But for sake of illustration it is not full
+	screen here. On the left is the code. In the right one can choose between the parse tree generated
+	from the code and a pane which displays the rules used to parse the code (TBD).
 
 	<Literate {parsedText} {parseTreeText} />
 	<Hr />
