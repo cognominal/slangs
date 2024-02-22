@@ -19,7 +19,7 @@ The list of areas I am currently working on with their tags on commit
 
 - [content] site content and various notes
 - [focus] change of focus
-- [cleaning] ditto
+- [cleaning] ditto, and various stuff
 - [factorize] code that will refactorize code
 - [Literate] Literate widget as a whole. Was [PTB]
   - [crumbs] logic to generate the crumbs and interact with them. Currently broken and commented out.
