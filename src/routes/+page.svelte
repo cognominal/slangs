@@ -57,10 +57,7 @@
 
 <!-- Can I make this page a +page.svelte.md despite the onMount ? -->
 
-<main
-	style="width: 40rem; text-align: justify; margin-left: auto;
-margin-right: auto;"
->
+<main class="box-content max-w-[min(40rem, 100vw)] mx-auto text-justify">
 	<h1>Grammars and slangs</h1>
 	This site (in construction) will promote raku grammars and slangs, and eventually make them available
 	to languages other than raku by making them a wasm based engine. Eventually having a a streamlined
