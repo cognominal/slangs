@@ -1,0 +1,3 @@
+[submodule "submodules/nqp"]
+	path = submodules/nqp
+	url = https://github.com/cognominal/nqp
