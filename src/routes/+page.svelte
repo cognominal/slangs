@@ -75,34 +75,42 @@
 		<h2>Literate Widget</h2>
 		The workhorse of this site is the Literate widget. The literate Widget is intended to be use in blogs,
 		article and documentation. It will support highlighting of code. But often the example is too advanced
-		or the reader want to go on a tangent. But for now let us explore a simple case. The example shown
-		here is a test case. The parsed text is:
+		or the reader want to go on a tangent. But for now let us explore a simple case.
+		<p>The example shown here is a test case. The parsed text is:</p>
 
 		<CodeMirror bind:value={parsedText} />
-
-		The grammar to parse it is below. It is the simples grammar intended to exercice most of the
-		features of the parse tree browser :
+		<p>
+			The grammar to parse it is below. It is the simples grammar intended to exercice most of the
+			features of the parse tree browser :
+		</p>
 
 		<CodeMirror bind:value={parseGrammarText} />
-
-		The parse tree is :
+		<p>The parse tree is :</p>
 		<CodeMirror bind:value={parseTreeText} />
-
-		The unexpanded widget will show only the parsed text.
+		<p>The unexpanded widget will show only the parsed text.</p>
 
 		<h2>Expanded Literate</h2>
-		An expanded Literate Widget will be full screen. But for sake of illustration it is not full screen
-		here. Think it as a playground but with some savvy which allows to display doc information.
+		<p>
+			An expanded Literate Widget will be full screen. But for sake of illustration it is not full
+			screen here. Think it as a playground but with some savvy which allows to display doc
+			information.
+		</p>
 
 		<h3>Parse tree</h3>
-		The expanded literate widget will be used to explore the parse tree generated from the code. On the
-		left is the code. In the right one can choose between the parse tree generated from the code and
-		a pane which displays the rules used to parse the code (TBD).
+		<p>
+			The expanded literate widget will be used to explore the parse tree generated from the code.
+			On the left is the code. In the right one can choose between the parse tree generated from the
+			code and a pane which displays the rules used to parse the code (TBD).
+		</p>
 		<Literate {parsedText} {parseTreeText} />
+		<p />
+
 		<h2>Yaml slang</h2>
-		A yaml slang will be provided derived from yamlish. It will be used to write code to drive test and
-		refactoring. As a slang it will not be a simple raku string but an syntax highlighted parsed entity
-		which parsetree can be explored with Literate widget.
+		<p>
+			A yaml slang will be provided derived from yamlish. It will be used to write code to drive
+			test and refactoring. As a slang it will not be a simple raku string but an syntax highlighted
+			parsed entity which parsetree can be explored with Literate widget.
+		</p>
 	</section>
 	<Toc breakpoint={300} --toc-min-width="20em" />
 </main>
@@ -117,3 +125,10 @@
 	{JSON.stringify(parseTree)}
 	<p />
 	{JSON.stringify(error)} -->
+
+<style>
+	p {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+</style>
