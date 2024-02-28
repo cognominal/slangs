@@ -7,7 +7,6 @@
 	import { parse } from 'yaml';
 	// import { Literate } from '$lib/Literate.svelte';
 	import Literate from '$lib/Literate.svelte';
-	import { Hr } from 'flowbite-svelte';
 	import Toc from 'svelte-toc';
 
 	// $: activeUrl = $page.url.pathname;
@@ -62,20 +61,39 @@
 <main class="flex">
 	<section Class="flex-auto">
 		<h2>Grammars and slangs</h2>
-		This site (in construction) will promote raku grammars and slangs by providing tools to explore them
-		and access documentation. It wiil eventually make them available to languages other than raku by
-		making them a wasm based engine. Eventually having a a streamlined grammar for Svelte 5 would be
-		nice.
 		<p>
-			To do so, We create pedagogical tools to learn about parsing with grammars. We do so by using
-			yaml parsetrees and maybe the ASTs. These tools are prototyped on this site but are intended
-			to eventually be available in vscode. The original version of the site at slangs.vercel.app is
-			static because it has no acces to the raku compiler.
+			This site (in construction) will promote <a
+				href="https://en.wikipedia.org/wiki/Raku_(programming_language">raku</a
+			>
+			language <a href="https://docs.raku.org/language/grammars">grammars</a>
+			and slangs by providing tools to explore them and access documentation. For lack of tooling, slangs
+			are not even an official feature of raku when it is the very thing that distinguish it from other
+			languages. This site wiil eventually make its tools available to languages other than raku by making
+			them a
+			<a href="https://en.wikipedia.org/wiki/WebAssembly">wasm</a>
+			based engine. Rust code could be used as a starting point. Eventually having a a streamlined grammar
+			for
+			<a href="https://svelte-5-preview.vercel.app/docs/introduction">Svelte 5</a> would be nice.
+		</p>
+		<p>
+			To do so, we create pedagogical tools to learn about <a
+				href="https://en.wikipedia.org/wiki/Parsing">parsing</a
+			>
+			with grammars. We do so by using yaml
+			<a href="https://en.wikipedia.org/wiki/Parse_tree">parsetrees</a>
+			and maybe the
+			<a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">ASTs</a>. These tools are
+			prototyped on this site but are intended to eventually be available in vscode. The original
+			version of the site at slangs.vercel.app is static because it has no acces to the raku
+			compiler.
 		</p>
 		<h2>Literate Widget</h2>
-		The workhorse of this site is the Literate widget. The literate Widget is intended to be use in blogs,
-		article and documentation. It will support highlighting of code. But often the example is too advanced
-		or the reader want to go on a tangent. But for now let us explore a simple case.
+		<p>
+			The workhorse of this site is the Literate widget. The literate Widget is intended to be use
+			in blogs, article and documentation. It will support highlighting of code. But often the
+			example is too advanced or the reader want to go on a tangent. But for now let us explore a
+			simple case.
+		</p>
 		<p>The example shown here is a test case. The parsed text is:</p>
 
 		<CodeMirror bind:value={parsedText} />
@@ -107,9 +125,11 @@
 
 		<h2>Yaml slang</h2>
 		<p>
-			A yaml slang will be provided derived from yamlish. It will be used to write code to drive
-			test and refactoring. As a slang it will not be a simple raku string but an syntax highlighted
-			parsed entity which parsetree can be explored with Literate widget.
+			A yaml slang will be provided derived from <a href="https://github.com/Leont/yamlish"
+				>yamlish</a
+			>. It will be used to write code to drive test and refactoring. As a slang it will not be a
+			simple raku string but an syntax highlighted parsed entity which parsetree can be explored
+			with Literate widget.
 		</p>
 	</section>
 	<Toc breakpoint={300} --toc-min-width="20em" />
