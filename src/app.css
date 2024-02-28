@@ -6,6 +6,8 @@ h1, h2, h3, h4, h5, h6 {
     color: #333;
     font-weight: bold;
   }
+  h2 { font-size: 1.18rem; }
+  h3 { font-size: 1.06rem; }
   
   p {
     color: #666;
