@@ -8,9 +8,9 @@ Below are instructions given when scaffolding the application.
 
 ## work in progress
 
-I have reached a stage where I knnow what tools to used.
-This not a SMOP (Simple mantter of programming) but my progress should be visible from now on.
-A MVP will be better than any explanation of waht I aim to.
+I have reached a stage where I knnow what tools to use.
+This is not a SMOP (Simple matter of programming) but my progress should be visible from now on.
+A [MVP](https://en.wikipedia.org/wiki/Minimum_viable_product) will be better than any explanation of what I aim to.
 This repo will probably evolve into a [monorepo](https://monorepo.tools/).
 
 ## focus
@@ -19,7 +19,7 @@ The list of areas I am currently working on with their tags on commit
 
 - [content] site content and various notes
 - [focus] change of focus
-- [cleaning] ditto, and various stuff
+- [cleaning] ditto, and various stuff, catchall
 - [factorize] code that will refactorize code
 - [Literate] Literate widget as a whole. Was [PTB]
   - [crumbs] logic to generate the crumbs and interact with them. Currently broken and commented out.
