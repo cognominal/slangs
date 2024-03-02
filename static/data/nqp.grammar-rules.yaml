@@ -1,0 +1,633 @@
+---
+"HLL::Grammar": 
+  "path": "/Users/cog/mine/nqp/gen/moar/stage2/NQPHLL.nqp"
+  "rules": 
+    "comment": 
+      "comment:sym<line_directive>": 
+        "from": 1007
+        "to": 1009
+    "infix": 
+      "infix:sym<+>": 
+        "from": 1019
+        "to": 1019
+    "quote_escape": 
+      "quote_escape:sym<0>": 
+        "from": 980
+        "to": 980
+      "quote_escape:sym<backslash>": 
+        "from": 962
+        "to": 962
+      "quote_escape:sym<bs>": 
+        "from": 965
+        "to": 965
+      "quote_escape:sym<chr>": 
+        "from": 979
+        "to": 979
+      "quote_escape:sym<cr>": 
+        "from": 967
+        "to": 967
+      "quote_escape:sym<esc>": 
+        "from": 970
+        "to": 970
+      "quote_escape:sym<ff>": 
+        "from": 969
+        "to": 969
+      "quote_escape:sym<hex>": 
+        "from": 971
+        "to": 974
+      "quote_escape:sym<misc>": 
+        "from": 981
+        "to": 991
+      "quote_escape:sym<nl>": 
+        "from": 966
+        "to": 966
+      "quote_escape:sym<oct>": 
+        "from": 975
+        "to": 978
+      "quote_escape:sym<stopper>": 
+        "from": 963
+        "to": 963
+      "quote_escape:sym<tab>": 
+        "from": 968
+        "to": 968
+    "term": 
+      "term:sym<circumfix>": 
+        "from": 902
+        "to": 909
+"NQP::Grammar": 
+  "path": "/Users/cog/mine/nqp/gen/moar/stage2/NQP.nqp"
+  "rules": 
+    "circumfix": 
+      "circumfix:sym<( )>": 
+        "from": 1542
+        "to": 1542
+      "circumfix:sym<[ ]>": 
+        "from": 1543
+        "to": 1543
+      "circumfix:sym<ang>": 
+        "from": 1544
+        "to": 1544
+      "circumfix:sym<{ }>": 
+        "from": 1546
+        "to": 1575
+      "circumfix:sym<« »>": 
+        "from": 1545
+        "to": 1545
+    "comment": 
+      "comment:sym<#>": 
+        "from": 883
+        "to": 885
+    "infix": 
+      "infix:sym<!~~>": 
+        "from": 1640
+        "to": 1640
+      "infix:sym<%>": 
+        "from": 1616
+        "to": 1616
+      "infix:sym<&&>": 
+        "from": 1642
+        "to": 1642
+      "infix:sym<**>": 
+        "from": 1605
+        "to": 1605
+      "infix:sym<*>": 
+        "from": 1614
+        "to": 1614
+      "infix:sym<+&>": 
+        "from": 1617
+        "to": 1617
+      "infix:sym<+>": 
+        "from": 1619
+        "to": 1619
+      "infix:sym<+^>": 
+        "from": 1622
+        "to": 1622
+      "infix:sym<+|>": 
+        "from": 1621
+        "to": 1621
+      "infix:sym<,>": 
+        "from": 1661
+        "to": 1661
+      "infix:sym<->": 
+        "from": 1620
+        "to": 1620
+      "infix:sym<//>": 
+        "from": 1645
+        "to": 1645
+      "infix:sym</>": 
+        "from": 1615
+        "to": 1615
+      "infix:sym<::=>": 
+        "from": 1659
+        "to": 1659
+      "infix:sym<:=>": 
+        "from": 1658
+        "to": 1658
+      "infix:sym<=>": 
+        "from": 1655
+        "to": 1657
+      "infix:sym<?? !!>": 
+        "from": 1647
+        "to": 1653
+      "infix:sym<||>": 
+        "from": 1644
+        "to": 1644
+      "infix:sym<~>": 
+        "from": 1624
+        "to": 1624
+      "infix:sym<~~>": 
+        "from": 1639
+        "to": 1639
+    "multi_declarator": 
+      "multi_declarator:sym<multi>": 
+        "from": 1387
+        "to": 1391
+      "multi_declarator:sym<null>": 
+        "from": 1397
+        "to": 1400
+      "multi_declarator:sym<proto>": 
+        "from": 1392
+        "to": 1396
+    "package_declarator": 
+      "package_declarator:sym<class>": 
+        "from": 1176
+        "to": 1182
+      "package_declarator:sym<grammar>": 
+        "from": 1183
+        "to": 1189
+      "package_declarator:sym<knowhow>": 
+        "from": 1169
+        "to": 1175
+      "package_declarator:sym<module>": 
+        "from": 1162
+        "to": 1168
+      "package_declarator:sym<native>": 
+        "from": 1197
+        "to": 1202
+      "package_declarator:sym<role>": 
+        "from": 1190
+        "to": 1196
+      "package_declarator:sym<stub>": 
+        "from": 1203
+        "to": 1210
+    "postcircumfix": 
+      "postcircumfix:sym<( )>": 
+        "from": 1592
+        "to": 1595
+      "postcircumfix:sym<[ ]>": 
+        "from": 1577
+        "to": 1580
+      "postcircumfix:sym<ang>": 
+        "from": 1587
+        "to": 1590
+      "postcircumfix:sym<{ }>": 
+        "from": 1582
+        "to": 1585
+    "postfix": 
+      "postfix:sym<++>": 
+        "from": 1602
+        "to": 1602
+      "postfix:sym<-->": 
+        "from": 1603
+        "to": 1603
+      "postfix:sym<.>": 
+        "from": 1597
+        "to": 1597
+    "prefix": 
+      "prefix:sym<!>": 
+        "from": 1611
+        "to": 1611
+      "prefix:sym<++>": 
+        "from": 1599
+        "to": 1599
+      "prefix:sym<+>": 
+        "from": 1607
+        "to": 1607
+      "prefix:sym<-->": 
+        "from": 1600
+        "to": 1600
+      "prefix:sym<->": 
+        "from": 1609
+        "to": 1609
+      "prefix:sym<?>": 
+        "from": 1610
+        "to": 1610
+      "prefix:sym<make>": 
+        "from": 1663
+        "to": 1663
+      "prefix:sym<|>": 
+        "from": 1612
+        "to": 1612
+      "prefix:sym<~>": 
+        "from": 1608
+        "to": 1608
+    "quote": 
+      "quote:sym</ />": 
+        "from": 1530
+        "to": 1536
+      "quote:sym<Q>": 
+        "from": 1529
+        "to": 1529
+      "quote:sym<apos>": 
+        "from": 1525
+        "to": 1525
+      "quote:sym<dblq>": 
+        "from": 1526
+        "to": 1526
+      "quote:sym<q>": 
+        "from": 1527
+        "to": 1527
+      "quote:sym<qq>": 
+        "from": 1528
+        "to": 1528
+    "quote_escape": 
+      "quote_escape:sym<$>": 
+        "from": 1538
+        "to": 1538
+      "quote_escape:sym<esc>": 
+        "from": 1540
+        "to": 1540
+      "quote_escape:sym<{ }>": 
+        "from": 1539
+        "to": 1539
+    "routine_declarator": 
+      "routine_declarator:sym<method>": 
+        "from": 1346
+        "to": 1359
+      "routine_declarator:sym<sub>": 
+        "from": 1345
+        "to": 1345
+    "scope_declarator": 
+      "scope_declarator:sym<anon>": 
+        "from": 1301
+        "to": 1301
+      "scope_declarator:sym<has>": 
+        "from": 1304
+        "to": 1311
+      "scope_declarator:sym<my>": 
+        "from": 1302
+        "to": 1302
+      "scope_declarator:sym<our>": 
+        "from": 1303
+        "to": 1303
+    "statement_control": 
+      "statement_control:sym<CATCH>": 
+        "from": 1086
+        "to": 1086
+      "statement_control:sym<CONTROL>": 
+        "from": 1088
+        "to": 1088
+      "statement_control:sym<for>": 
+        "from": 1080
+        "to": 1084
+      "statement_control:sym<if>": 
+        "from": 1052
+        "to": 1057
+      "statement_control:sym<repeat>": 
+        "from": 1071
+        "to": 1078
+      "statement_control:sym<unless>": 
+        "from": 1059
+        "to": 1063
+      "statement_control:sym<use>": 
+        "from": 1048
+        "to": 1050
+      "statement_control:sym<while>": 
+        "from": 1065
+        "to": 1069
+    "statement_mod_cond": 
+      "statement_mod_cond:sym<if>": 
+        "from": 1110
+        "to": 1110
+      "statement_mod_cond:sym<unless>": 
+        "from": 1111
+        "to": 1111
+    "statement_mod_loop": 
+      "statement_mod_loop:sym<for>": 
+        "from": 1117
+        "to": 1117
+      "statement_mod_loop:sym<until>": 
+        "from": 1116
+        "to": 1116
+      "statement_mod_loop:sym<while>": 
+        "from": 1115
+        "to": 1115
+    "statement_prefix": 
+      "statement_prefix:sym<BEGIN>": 
+        "from": 1091
+        "to": 1091
+      "statement_prefix:sym<INIT>": 
+        "from": 1092
+        "to": 1092
+      "statement_prefix:sym<try>": 
+        "from": 1093
+        "to": 1104
+    "term": 
+      "term:sym<colonpair>": 
+        "from": 1122
+        "to": 1122
+      "term:sym<fatarrow>": 
+        "from": 1121
+        "to": 1121
+      "term:sym<identifier>": 
+        "from": 1478
+        "to": 1480
+      "term:sym<lambda>": 
+        "from": 1131
+        "to": 1131
+      "term:sym<last>": 
+        "from": 1132
+        "to": 1132
+      "term:sym<multi_declarator>": 
+        "from": 1128
+        "to": 1128
+      "term:sym<name>": 
+        "from": 1495
+        "to": 1497
+      "term:sym<next>": 
+        "from": 1133
+        "to": 1133
+      "term:sym<nqp::const>": 
+        "from": 1486
+        "to": 1488
+      "term:sym<nqp::op>": 
+        "from": 1482
+        "to": 1484
+      "term:sym<onlystar>": 
+        "from": 1490
+        "to": 1493
+      "term:sym<package_declarator>": 
+        "from": 1124
+        "to": 1124
+      "term:sym<redo>": 
+        "from": 1134
+        "to": 1138
+      "term:sym<regex_declarator>": 
+        "from": 1127
+        "to": 1127
+      "term:sym<return>": 
+        "from": 1664
+        "to": 1669
+      "term:sym<routine_declarator>": 
+        "from": 1126
+        "to": 1126
+      "term:sym<scope_declarator>": 
+        "from": 1125
+        "to": 1125
+      "term:sym<self>": 
+        "from": 1476
+        "to": 1476
+      "term:sym<statement_prefix>": 
+        "from": 1130
+        "to": 1130
+      "term:sym<value>": 
+        "from": 1512
+        "to": 1517
+      "term:sym<variable>": 
+        "from": 1123
+        "to": 1123
+    "terminator": 
+      "terminator:sym<;>": 
+        "from": 1041
+        "to": 1041
+      "terminator:sym<}>": 
+        "from": 1042
+        "to": 1042
+    "trait_mod": 
+      "trait_mod:sym<is>": 
+        "from": 1430
+        "to": 1461
+"NQP::Regex": 
+  "path": "/Users/cog/mine/nqp/gen/moar/stage2/NQP.nqp"
+  "rules": 
+    "assertion": 
+      "assertion:sym<!>": 
+        "from": 1694
+        "to": 1694
+      "assertion:sym<?>": 
+        "from": 1693
+        "to": 1693
+      "assertion:sym<?{ }>": 
+        "from": 1696
+        "to": 1698
+      "assertion:sym<name>": 
+        "from": 1705
+        "to": 1714
+      "assertion:sym<var>": 
+        "from": 1716
+        "to": 1718
+      "assertion:sym<{ }>": 
+        "from": 1689
+        "to": 1691
+    "metachar": 
+      "metachar:sym<:my>": 
+        "from": 1677
+        "to": 1679
+      "metachar:sym<nqpvar>": 
+        "from": 1685
+        "to": 1687
+      "metachar:sym<{ }>": 
+        "from": 1681
+        "to": 1683
+"QRegex::P5Regex::Grammar": 
+  "path": "/Users/cog/mine/nqp/gen/moar/stage2/NQPP5QRegex.nqp"
+  "rules": 
+    "assertion": 
+      "assertion:sym<name>": 
+        "from": 250
+        "to": 259
+    "backslash": 
+      "backslash:sym<A>": 
+        "from": 242
+        "to": 242
+      "backslash:sym<Q>": 
+        "from": 245
+        "to": 245
+      "backslash:sym<Z>": 
+        "from": 244
+        "to": 244
+      "backslash:sym<c>": 
+        "from": 241
+        "to": 241
+      "backslash:sym<e>": 
+        "from": 233
+        "to": 233
+      "backslash:sym<f>": 
+        "from": 234
+        "to": 234
+      "backslash:sym<h>": 
+        "from": 235
+        "to": 235
+      "backslash:sym<o>": 
+        "from": 239
+        "to": 239
+      "backslash:sym<r>": 
+        "from": 236
+        "to": 236
+      "backslash:sym<t>": 
+        "from": 237
+        "to": 237
+      "backslash:sym<unrec>": 
+        "from": 246
+        "to": 246
+      "backslash:sym<v>": 
+        "from": 238
+        "to": 238
+      "backslash:sym<x>": 
+        "from": 240
+        "to": 240
+      "backslash:sym<z>": 
+        "from": 243
+        "to": 243
+    "metachar": 
+      "metachar:sym<\">": 
+        "from": 217
+        "to": 217
+      "metachar:sym<'>": 
+        "from": 216
+        "to": 216
+      "metachar:sym<from>": 
+        "from": 220
+        "to": 220
+      "metachar:sym<lwb>": 
+        "from": 218
+        "to": 218
+      "metachar:sym<rwb>": 
+        "from": 219
+        "to": 219
+      "metachar:sym<to>": 
+        "from": 221
+        "to": 221
+      "metachar:sym<var>": 
+        "from": 223
+        "to": 230
+    "p5assertion": 
+      "p5assertion:sym<!>": 
+        "from": 160
+        "to": 160
+      "p5assertion:sym<=>": 
+        "from": 159
+        "to": 159
+      "p5assertion:sym<mod>": 
+        "from": 164
+        "to": 175
+    "p5backslash": 
+      "p5backslash:sym<A>": 
+        "from": 136
+        "to": 136
+      "p5backslash:sym<E>": 
+        "from": 152
+        "to": 152
+      "p5backslash:sym<Q>": 
+        "from": 151
+        "to": 151
+      "p5backslash:sym<R>": 
+        "from": 139
+        "to": 139
+      "p5backslash:sym<Z>": 
+        "from": 150
+        "to": 150
+      "p5backslash:sym<b>": 
+        "from": 137
+        "to": 137
+      "p5backslash:sym<misc>": 
+        "from": 153
+        "to": 153
+      "p5backslash:sym<oops>": 
+        "from": 154
+        "to": 154
+      "p5backslash:sym<r>": 
+        "from": 138
+        "to": 138
+      "p5backslash:sym<s>": 
+        "from": 140
+        "to": 140
+      "p5backslash:sym<t>": 
+        "from": 141
+        "to": 141
+      "p5backslash:sym<x>": 
+        "from": 142
+        "to": 148
+      "p5backslash:sym<z>": 
+        "from": 149
+        "to": 149
+    "p5metachar": 
+      "p5metachar:sym<$>": 
+        "from": 100
+        "to": 102
+      "p5metachar:sym<( )>": 
+        "from": 113
+        "to": 113
+      "p5metachar:sym<(? )>": 
+        "from": 103
+        "to": 111
+      "p5metachar:sym<(?: )>": 
+        "from": 112
+        "to": 112
+      "p5metachar:sym<.>": 
+        "from": 98
+        "to": 98
+      "p5metachar:sym<[ ]>": 
+        "from": 114
+        "to": 132
+      "p5metachar:sym<^>": 
+        "from": 99
+        "to": 99
+      "p5metachar:sym<bs>": 
+        "from": 97
+        "to": 97
+      "p5metachar:sym<quant>": 
+        "from": 92
+        "to": 96
+    "p5quantifier": 
+      "p5quantifier:sym<*>": 
+        "from": 179
+        "to": 179
+      "p5quantifier:sym<+>": 
+        "from": 180
+        "to": 180
+      "p5quantifier:sym<?>": 
+        "from": 181
+        "to": 181
+      "p5quantifier:sym<{ }>": 
+        "from": 182
+        "to": 187
+"Syntax": 
+  "path": "/Users/cog/mine/nqp/gen/moar/stage2/NQPHLL.nqp"
+  "rules": 
+    "directive": 
+      "directive:sym<b>": 
+        "from": 3133
+        "to": 3133
+      "directive:sym<c>": 
+        "from": 3134
+        "to": 3134
+      "directive:sym<d>": 
+        "from": 3135
+        "to": 3135
+      "directive:sym<e>": 
+        "from": 3136
+        "to": 3136
+      "directive:sym<f>": 
+        "from": 3137
+        "to": 3137
+      "directive:sym<g>": 
+        "from": 3138
+        "to": 3138
+      "directive:sym<o>": 
+        "from": 3139
+        "to": 3139
+      "directive:sym<s>": 
+        "from": 3140
+        "to": 3140
+      "directive:sym<u>": 
+        "from": 3141
+        "to": 3141
+      "directive:sym<x>": 
+        "from": 3142
+        "to": 3142
+    "escape": 
+      "escape:sym<%>": 
+        "from": 3145
+        "to": 3151
+...

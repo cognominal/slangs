@@ -2,11 +2,13 @@
 #! /usr/bin/env raku
 use YAMLish;
 
-chdir '/Users/cog/mine/nqp/gen/moar/stage2'; # hardcoded for now
+my $dir = '/Users/cog/mine/nqp/gen/moar/stage2'; # hardcoded for now
+my $output = 'static/data/nqp.grammar-rules.yaml';
 
 
 # files that contain grammars
 my @files = [ 'NQPHLL.nqp', 'NQPP5QRegex.nqp', 'NQP.nqp' ];
+@files = map { "$dir/$_" }, @files;
 
 my %rules;
 
@@ -77,7 +79,8 @@ sub process-string(str $s, str $file-path = '<unknown>') {
     }
 
     my $str = save-yaml(%rules);
-    say($str);
+    spurt $output, $str;
+    # say($str);
 
 }
 
