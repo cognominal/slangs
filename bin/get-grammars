@@ -1,0 +1,99 @@
+
+#! /usr/bin/env raku
+use YAMLish;
+
+chdir '/Users/cog/mine/nqp/gen/moar/stage2'; # hardcoded for now
+
+
+# files that contain grammars
+my @files = [ 'NQPHLL.nqp', 'NQPP5QRegex.nqp', 'NQP.nqp' ];
+
+my %rules;
+
+# dealing wihh rule overriding by a derived grammar ?
+# does that happen ? ws ?
+
+# need to find the method names corresponding to the rules.
+# probably some rules have no associated action and certainly
+# some nethodds are not associated with a rule.
+
+sub process_file($file-path) {
+    my str $content = slurp $file-path;
+    process-string($content, $file-path);
+}
+
+sub process-string(str $s, str $file-path = '<unknown>') {
+    my str @lines = split "\n", $s;
+    my int $line-nr;
+    my str $path = $file-path; # will be overwritten by the  #line directives if any
+    my ($grammar-indent, $grammar-nm);
+    my ($rule-indent, $rule-nm, $short-rule-nm);
+    my %grammar-infos;
+    $grammar-indent = $rule-indent = Nil;
+
+    for @lines {
+        if m/ ^ '#line' $<lnr>=\d+ \h* $<path>=\V+ / {
+            $line-nr = ~$<lnr>;
+            $path = ~$<path>;
+            next;
+        }
+        $line-nr++;
+        if m/ ^ $<indent>=\h* grammar \h+ $<nm>=\S+ / {
+            $grammar-nm = $<nm>;
+            $grammar-indent = ~$<indent>;
+            %rules{$grammar-nm}<path> = $path;
+            next;
+        }
+        # many implicit assumptions here
+
+        if m/ ^ $<indent>=\h* [token | rule | regex ] \h+ 
+                $<nm>=[ $<short>=<[\w-]>+ ':sym<'  .*?  '>' ]  
+                [ '(' .*? ')' ]? 
+                \h* '{' $<one-liner>=[ .* '}' ]? / {
+            # say $_;
+            $rule-nm = $short-rule-nm = ~$<nm>;
+
+            %grammar-infos := { :from($line-nr)  };
+            if $<one-liner> {
+                %grammar-infos<to> = $line-nr;
+            } else {
+                $rule-indent = ~$<indent>;
+            }
+            $short-rule-nm = $<short> ?? ~$<short> !! $rule-nm;
+
+             %rules{$grammar-nm}<rules>{$short-rule-nm}{$rule-nm} := %grammar-infos;
+             
+              
+
+            $rule-indent = $<indent>;
+
+        }
+        # rule closing
+        if $rule-indent && m/ ^ $rule-indent \} / {
+            %grammar-infos<to> = $line-nr;
+            $rule-indent = Nil;
+            next;
+        }
+    }
+
+    my $str = save-yaml(%rules);
+    say($str);
+
+}
+
+my $test-s = q:to/END/;
+    grammar NQP::Grammar {
+        token assertion:sym<{ }> {   <?[{]> <codeblock>  }
+
+        token metachar:sym<nqpvar> {
+            <?before <.sigil> [\W\w | \w]> <var=.LANG('MAIN', 'variable')> <.SIGOK>
+    }
+
+
+END
+
+# process-string($test-s, 'test');
+process_file($_) for @files;
+
+
+ 

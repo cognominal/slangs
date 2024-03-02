@@ -19,6 +19,7 @@ The list of areas I am currently working on with their tags on commit
 
 - [content] site content and various notes
 - [focus] change of focus
+- [ancyllary] ditto
 - [cleaning] ditto, and various stuff, catchall
 - [factorize] code that will refactorize code
 - [Literate] Literate widget as a whole. Was [PTB]
