@@ -2,9 +2,7 @@
 title: Creating a slang ecosystem
 ---
 
-<div style="width: 40rem; text-align: justify;   margin-left: auto;
-    margin-right: auto;">
-
+<div  class="box-content max-w-[min(40rem, 100vw)] mx-auto text-justify">
 # creating a slang secosystem
 
 This site will advertise raku grammars and slang.
@@ -43,7 +41,7 @@ to provide treesitters and syntax highligting.
 
 Currently beside the [Comma](https://commaide.com/) editor, syntax highlighting
 is broken for raku is broken in all editor even for trivial programs. So
-writing program in a given slang is a non start for anyone expecting decent
+writing program in a given slang is a non starter for anyone expecting decent
 support from the editor. Nowhere
 [LSP](https://microsoft.github.io/language-server-protocol/) is supported.
 
@@ -53,7 +51,7 @@ support from the editor. Nowhere
 [parsetree](https://eng.libretexts.org/Bookshelves/Computer_Science/Programming_and_Computation_Fundamentals/Foundations_of_Computation_(Critchlow_and_Eck)/04%3A_Grammars/4.03%3A_Parsing_and_Parse_Trees)
 dump in [yaml](https://yaml.org/) from nqp and raku 
 - using the generated yaml to drive the
-navigation of code displayed in a codemirror widget using a crumbbar
+navigation of code displayed in a Monaco widget using a crumbbar
 
 ## TBD 
 

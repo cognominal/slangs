@@ -2,11 +2,11 @@
 	import type { Parsetree, Crumbs } from '$lib/types.js';
 	import { calcCrumbs } from '$lib/utils';
 	// import { page } from '$app/stores';
-	import CodeMirror from 'svelte-codemirror-editor';
 	import { onMount } from 'svelte';
 	import { parse } from 'yaml';
 	// import { Literate } from '$lib/Literate.svelte';
 	import Literate from '$lib/Literate.svelte';
+	import Monaco from '$lib/Monaco.svelte';
 	import Toc from 'svelte-toc';
 
 	// $: activeUrl = $page.url.pathname;
@@ -68,8 +68,16 @@
 			language <a href="https://docs.raku.org/language/grammars">grammars</a>
 			and slangs by providing tools to explore them and access documentation. For lack of tooling, slangs
 			are not even an official feature of raku when it is the very thing that distinguish it from other
-			languages. This site wiil eventually make its tools available to languages other than raku by making
-			them a
+			languages. Raku fully supporting slangs will make in a principled way what Perl did very successfully
+			as a hack. It was said that "Perl duct tape that holds the Internet together". in essence making
+			more rigid tools cooperate with each other. That is in other word, being capable of process ther
+			output and generate output suitable to them.
+		</p>
+
+		<h3>Tooling</h3>
+		<p>
+			This site wiil eventually make its tools available to languages other than raku by making them
+			a
 			<a href="https://en.wikipedia.org/wiki/WebAssembly">wasm</a>
 			based engine. Rust code could be used as a starting point. Eventually having a a streamlined grammar
 			for
@@ -89,22 +97,22 @@
 		</p>
 		<h2>Literate Widget</h2>
 		<p>
-			The workhorse of this site is the Literate widget. The literate Widget is intended to be use
+			The workhorse of this site is the Literate widget. The literate Widget is intended to be used
 			in blogs, article and documentation. It will support highlighting of code. But often the
 			example is too advanced or the reader want to go on a tangent. But for now let us explore a
 			simple case.
 		</p>
 		<p>The example shown here is a test case. The parsed text is:</p>
 
-		<CodeMirror bind:value={parsedText} />
+		<Monaco bind:value={parsedText} />
 		<p>
 			The grammar to parse it is below. It is the simples grammar intended to exercice most of the
 			features of the parse tree browser :
 		</p>
 
-		<CodeMirror bind:value={parseGrammarText} />
+		<Monaco bind:value={parseGrammarText} />
 		<p>The parse tree is :</p>
-		<CodeMirror bind:value={parseTreeText} />
+		<Monaco bind:value={parseTreeText} />
 		<p>The unexpanded widget will show only the parsed text.</p>
 
 		<h2>Expanded Literate</h2>
