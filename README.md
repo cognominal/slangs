@@ -17,17 +17,18 @@ This repo will probably evolve into a [monorepo](https://monorepo.tools/).
 
 The list of areas I am currently working on with their tags on commit
 
-- [content] site content and various notes
-- [focus] change of focus
-- [ancyllary] ditto
-- [cleaning] ditto, and various stuff, catchall
-- [factorize] code that will refactorize code
-- [Literate] Literate widget as a whole. Was [PTB]
-  - [crumbs] logic to generate the crumbs and interact with them. Currently broken and commented out.
-  - [rules pane] logic to bring content to the rules pane of a PTB
-  - [TOC] styling of the tOC
-  - [styling] ditto
-- [calendar] /Calendar is a non public page. I hope it will help me to organize my work
+- **content**: site content and various notes
+- **focus**: change of focus
+- **ancillary**: ditto
+- **cleaning**: ditto, and various stuff, catchall
+- **factorize**: code that will refactorize code
+- **literate**: Literate widget as a whole. Was **PTB**
+  - **crumbs**: logic to generate the crumbs and interact with them. Currently broken and commented out.
+  - **rules pane**: logic to bring content to the rules pane of a PTB
+  - **TOC**: styling of the tOC
+  - **styling**: ditto
+- **calendar**: /Calendar is a non public page. I hope it will help me to organize my work
+- **shell**: will be shell slang
 
 # create-svelte
 
