@@ -1,0 +1,91 @@
+use nqp;
+# use QAST:from<NQP>;
+use QAST;
+# use Grammar::Tracer;
+# use Slangify;
+
+
+my $src-code := 'echo if \if "tata";';
+
+
+sub say(*@args) {
+    stdout().say(join(' ', @args));
+    1;
+}
+
+
+my %nqp-map := nqp::hash(  'echo', 'say', 'cd', 'chdir', 'ls', ' dir' );
+# my %nqp-map := nqp::hash(  'echo', &say, 'cd', 'chdir', 'ls', ' dir' );
+
+grammar sh is NQP::Grammar {
+    rule command    {  <cmd> <arg>*  <modifier>?  [ ';' | \n | $ ]      }
+    token TOP       { <command>+                                        }
+    token arg       { $<bareword>=\w+  || <value>                       } 
+    token cmd       { <builtin>                                         }
+    token builtin   { say | echo | cd | ls                              }
+    token predicate { <value>                                           }
+    rule modifier   { $<hidden>='\\' $<keyword>='if'  <predicate>       }
+    token ws        { \h*                                               }
+
+}
+
+sub compile-qast($qast) {
+    my $*QAST_BLOCK_NO_CLOSE := 1;
+    # Turn off the optimizer as it can only handle things things nqp generates
+    my $comp := nqp::getcomp('nqp');
+    $comp.compile($qast, :from('ast'), :optimize('off'));
+}
+
+
+sub compunit($ast) {
+    my $compunit := QAST::CompUnit.new(  :hll('nqp'),
+        # :hll('sh'), :mainline(1) 
+        QAST::Block.new( $ast)
+        );
+    # $compunit.push($ast);
+    say($compunit.dump);
+    $compunit
+}
+
+class sh-Actions is NQP::Actions {
+    method TOP($/) {
+        my $ast := QAST::Stmts.new( :node($/));
+        $ast.push($_.ast) for $<command>;
+        # say($ast.dump);
+        # make $ast;
+        make compunit($ast);
+    }
+
+    method command($/) {
+        my $ast;
+        my $builtin := $<cmd>{'builtin'};
+        my $nqp-builtin :=  %nqp-map{$builtin} ?? %nqp-map{$builtin} !! $builtin;
+        if $nqp-builtin {
+            # say('builtin ', nqp::istype($nqp-builtin, 'BOOTCode'), $nqp-builtin.HOW.name($nqp-builtin));
+            if $nqp-builtin.HOW.name($nqp-builtin) eq 'BOOTCode' {
+                $ast := QAST::Op.new( :op('call'), :name(~$nqp-builtin)); 
+            } else {
+                $ast := QAST::Op.new( :op(~$nqp-builtin)); 
+            }
+        }
+        say('args ', +$<arg>);
+        $ast.push($_.ast) for $<arg>;
+        if $<modifier> {
+            my $m := $<modifier>;
+            $ast := QAST::Op.new( :op(~$m<keyword>), $m<predicate>.ast, $ast);
+        }
+        make $ast;
+
+    }
+    method arg($/)       { 
+        make $<bareword> ?? QAST::SVal.new( :value(~$/)) !! <value>.ast;
+    }
+    method predicate($/) { make $<value>.ast;                     }
+    method value($/)     { make QAST::SVal.new: :value(~$/);     }
+}
+
+my $parsetree  := sh.parse($src-code, :actions(sh-Actions));
+say('compile error') unless $parsetree;
+my $ast := $parsetree.ast;
+my $code := compile-qast($ast);
+$code();
